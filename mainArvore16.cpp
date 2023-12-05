@@ -7,7 +7,7 @@ struct NoArvore {
     NoArvore* direita;
 };
 
-// Função para criar um novo nó
+// FunÃ§Ã£o para criar um novo nÃ³
 NoArvore* criarNo(int valor) {
     NoArvore* novoNo = new NoArvore;
     novoNo->dado = valor;
@@ -16,7 +16,7 @@ NoArvore* criarNo(int valor) {
     return novoNo;
 }
 
-// Função para encontrar o maior nó de cada nível
+// FunÃ§Ã£o para encontrar o maior nÃ³ de cada nÃ­vel
 void maiorNoPorNivel(NoArvore* raiz) {
     if (raiz == NULL) {
         return;
@@ -24,7 +24,7 @@ void maiorNoPorNivel(NoArvore* raiz) {
 
     while (raiz != NULL) {
         NoArvore* temp = raiz;
-        int maiorValor = temp->dado; // Inicializando com o valor do nó atual
+        int maiorValor = temp->dado; // Inicializando com o valor do nÃ³ atual
 
         while (temp != NULL) {
             if (temp->dado > maiorValor) {
@@ -38,21 +38,22 @@ void maiorNoPorNivel(NoArvore* raiz) {
             }
         }
 
-        cout << "Maior nó do nível: " << maiorValor << endl;
-        raiz = raiz->esquerda; // Move para o próximo nível
+        cout << "Maior nÃ³ do nÃ­vel: " << maiorValor << endl;
+        raiz = raiz->esquerda; // Move para o prÃ³ximo nÃ­vel
     }
 }
 
 int main() {
-    // Criando a árvore com os nós fornecidos
+    // Criando a Ã¡rvore com os nÃ³s fornecidos
     NoArvore* raiz = criarNo(1);
     raiz->esquerda = criarNo(3);
     raiz->direita = criarNo(2);
     raiz->esquerda->esquerda = criarNo(5);
     raiz->esquerda->direita = criarNo(3);
+    raiz->direita->esquerda = NULL;
     raiz->direita->direita = criarNo(9);
 
-    // Encontrando e imprimindo o maior nó de cada nível
+    // Encontrando e imprimindo o maior nÃ³ de cada nÃ­vel
     maiorNoPorNivel(raiz);
 
     return 0;
